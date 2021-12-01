@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    @books = Book.all
     @book = Book.new(book_params)
     if @book.save
       flash[:notice] = "Book was successfully created."
@@ -19,10 +20,12 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+
   end
 
   def edit
     @book = Book.find(params[:id])
+
   end
 
   def update
